@@ -1,0 +1,83 @@
+% ---------------------------------------------------------
+% This template is based on:
+% https://github.com/posquit0/Awesome-CV
+%  Template license: https://creativecommons.org/licenses/by-sa/4.0/)
+% ---------------------------------------------------------
+% FIXME:
+% * awesome-cv.cls@line:164: newFontFamily for {FontAwesome} 
+% was temporarily commented out. (should be fixed)
+% ---------------------------------------------------------
+
+% A4 paper size by default
+\documentclass[14pt, a4paper]{awesome-cv}
+
+% Configure page margins with geometry
+\geometry{left=1.4cm, top=1.8cm, right=1.4cm, bottom=1.8cm, footskip=.5cm}
+
+\fontdir[fonts/]
+
+% Color for highlights
+% Awesome Colors: awesome-emerald, awesome-skyblue, awesome-red, awesome-pink, awesome-orange
+%                 awesome-nephritis, awesome-concrete, awesome-darknight
+\colorlet{awesome}{awesome-darknight}
+% Uncomment if you would like to specify your own color
+% \definecolor{awesome}{HTML}{CA63A8}
+
+% Colors for text
+% Uncomment if you would like to specify your own color
+% \definecolor{darktext}{HTML}{414141}
+% \definecolor{text}{HTML}{333333}
+\definecolor{graytext}{HTML}{696969}
+\definecolor{lighttext}{HTML}{696969}
+
+% Set false if you don't want to highlight section with awesome color
+% \setbool{acvSectionColorHighlight}{true}
+
+% If you would like to change the social information separator from a pipe (|) to something else
+\renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
+
+%-------------------------------------------------------------------------------
+%	PERSONAL INFORMATION
+%	Comment any of the lines below if they are not required
+%-------------------------------------------------------------------------------
+% Available options: circle|rectangle,edge/noedge,left/right
+\photo[circle,noedge,left]{./Untitled}
+\photoQR[circle,noedge,right]{./profile}
+\name{Vasyl}{Mykhalchuk}
+\position{\textbf{Software Engineer, R\&D{\enskip\cdotp\enskip}Vision and Graphics, PhD}}
+\address{Kyiv, Ukraine}
+
+\mobile{(+38) 067-763-73-86}
+\email{vasyl.mykhalchuk@gmail.com}
+\linkedin{vasylmykhalchuk}
+% \googlescholar{googlescholar-id}{name-to-display}
+%% \firstname and \lastname will be used
+\googlescholar{https://scholar.google.com/citations?user=ECvF-4EAAAAJ&hl=en}{Google Scholar}
+%\homepage{www.megalol.com}
+%\github{https://github.com/iirthw}
+% \extrainfo{extra informations}
+
+%-------------------------------------------------------------------------------
+\begin{document}
+
+% Print the header with above personal informations
+% Give optional argument to change alignment(C: center, L: left, R: right)
+\makecvheader[L]
+
+% Print the footer with 3 arguments(<left>, <center>, <right>)
+% Leave any of these blank if they are not needed
+\makecvfooter
+  {\today}
+  {Vasyl Mykhalchuk~~~·~~~Curriculum vitae}
+  {\thepage}
+
+
+\input{cv-subsections/summary.tex}
+\input{cv-subsections/education.tex}
+\input{cv-subsections/experience.tex}
+\input{cv-subsections/research.tex}
+\input{cv-subsections/toolbelt.tex}
+\input{cv-subsections/languages.tex}
+
+%-------------------------------------------------------------------------------
+\end{document}
