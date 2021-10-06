@@ -188,30 +188,79 @@
 %-------------------------------------------------------------------------------
 % Configure styles for each CV elements
 % For fundamental structures
-\newcommand*{\headerfirstnamestyle}[1]{{\fontsize{32pt}{1em}\headerfontlight\color{graytext} #1}}
-\newcommand*{\headerlastnamestyle}[1]{{\fontsize{32pt}{1em}\headerfont\bfseries\color{text} #1}}
-\newcommand*{\headerpositionstyle}[1]{{\fontsize{7.6pt}{1em}\bodyfont\scshape\color{awesome} #1}}
-\newcommand*{\headeraddressstyle}[1]{{\fontsize{8pt}{1em}\headerfont\itshape\color{lighttext} #1}}
-\newcommand*{\headersocialstyle}[1]{{\fontsize{6.8pt}{1em}\headerfont\color{text} #1}}
-\newcommand*{\headerquotestyle}[1]{{\fontsize{9pt}{1em}\bodyfont\itshape\color{darktext} #1}}
-\newcommand*{\footerstyle}[1]{{\fontsize{8pt}{1em}\footerfont\scshape\color{lighttext} #1}}
-\newcommand*{\sectionstyle}[1]{{\fontsize{16pt}{1em}\bodyfont\bfseries\color{text}\@sectioncolor #1}}
-\newcommand*{\subsectionstyle}[1]{{\fontsize{12pt}{1em}\bodyfont\scshape\textcolor{text}{#1}}}
-\newcommand*{\paragraphstyle}{\fontsize{9pt}{1em}\bodyfontlight\upshape\color{text}}
 
-% For elements of entry
-\newcommand*{\entrytitlestyle}[1]{{\fontsize{10pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
-\newcommand*{\entrypositionstyle}[1]{{\fontsize{8pt}{1em}\bodyfont\scshape\color{graytext} #1}}
-\newcommand*{\entrydatestyle}[1]{{\fontsize{8pt}{1em}\bodyfontlight\slshape\color{graytext} #1}}
-\newcommand*{\entrylocationstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\slshape\color{awesome} #1}}
-\newcommand*{\descriptionstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\upshape\color{text} #1}}
+% Define possible discrete font changes, in order to manipulate font sizes.
+\newcommand\fontSizeChangeDecreaseLarge{-4}
+\newcommand\fontSizeChangeDecrease{-2}
+\newcommand\fontSizeChangeNone{0}
+\newcommand\fontSizeChangeSmall{1}
+\newcommand\fontSizeChange{2}
+\newcommand\fontSizeChangeMedium{3}
+\newcommand\fontSizeChangeLarge{4}
+
+% ==============================================================================
+% Header, Footer, Section, Subsection, Paragraph
+\newcommand\headerfirstnamesize{\the\numexpr\fontSizeChangeDecreaseLarge+32\relax pt}
+\newcommand\headerlastnamesize{\the\numexpr\fontSizeChangeDecreaseLarge+32\relax pt}
+\newcommand\headerpositionsize{\the\numexpr\fontSizeChange+8\relax pt}
+\newcommand\headeraddresssize{\the\numexpr\fontSizeChangeSmall+8\relax pt}
+\newcommand\headersocialsize{\the\numexpr\fontSizeChangeSmall+7\relax pt}
+%\newcommand\headerquotestyle{9pt}
+\newcommand\footersize{\the\numexpr\fontSizeChangeSmall+8\relax pt}
+\newcommand\sectionsize{\the\numexpr\fontSizeChangeNone+16\relax pt}
+\newcommand\subsectionsize{\the\numexpr\fontSizeChangeNone+12\relax pt}
+\newcommand\paragraphsize{\the\numexpr\fontSizeChangeSmall+9\relax pt}
+% ==============================================================================
+% ==============================================================================
+% ==============================================================================
+
+\newcommand*{\headerfirstnamestyle}[1]{{\fontsize{\headerfirstnamesize}{1em}\headerfont\color{graytext} #1}}
+\newcommand*{\headerlastnamestyle}[1]{{\fontsize{\headerlastnamesize}{1em}\headerfont\bfseries\color{text} #1}}
+\newcommand*{\headerpositionstyle}[1]{{\fontsize{\headerpositionsize}{1em}\bodyfont\scshape\color{awesome} #1}}
+\newcommand*{\headeraddressstyle}[1]{{\fontsize{\headeraddresssize}{1em}\headerfont\scshape\color{lighttext} #1}}
+\newcommand*{\headersocialstyle}[1]{{\fontsize{\headersocialsize}{1em}\headerfont\color{text} #1}}
+\newcommand*{\headerquotestyle}[1]{{\fontsize{9pt}{1em}\bodyfont\itshape\color{darktext} #1}}
+\newcommand*{\footerstyle}[1]{{\fontsize{\footersize}{1em}\footerfont\scshape\color{lighttext} #1}}
+\newcommand*{\sectionstyle}[1]{{\fontsize{\sectionsize}{1em}\bodyfont\bfseries\color{text}\@sectioncolor #1}}
+\newcommand*{\subsectionstyle}[1]{{\fontsize{\subsectionsize}{1em}\bodyfont\scshape\textcolor{text}{#1}}}
+\newcommand*{\paragraphstyle}{
+  \fontsize{\paragraphsize}{1em}\bodyfontlight\upshape\color{text}
+  \onehalfspacing
+}
+
+% ==============================================================================
+% /!\ CVENTRY 
+% ==============================================================================
+
+% For elements of entry ()
+\newcommand*{\entrytitlestyle}[1]{
+  {\hspace{-0.225em}\fontsize{12pt}{1em}\bodyfont\bfseries\color{graytext} #1}  
+}
+\newcommand*{\entrypositionstyle}[1]{
+  {\fontsize{10pt}{1em}\bodyfont\scshape\color{darktext} #1} % 8pt
+}
+\newcommand*{
+  \entrydatestyle}[1]{{\fontsize{10pt}{1em}\bodyfontlight\slshape\color{graytext} #1} % 8pt
+}
+\newcommand*{
+  \entrylocationstyle}[1]{{\fontsize{10pt}{1em}\bodyfontlight\slshape\color{awesome} #1}
+}
+\newcommand*{
+  \descriptionstyle}[1]{
+      {\doublespacing\fontsize{10pt}{1em}\bodyfontlight\upshape\color{text} #1
+  }  
+}
+
+% ==============================================================================
 
 % For elements of subentry
-\newcommand*{\subentrytitlestyle}[1]{{\fontsize{8pt}{1em}\bodyfont\mdseries\color{graytext} #1}}
-\newcommand*{\subentrypositionstyle}[1]{{\fontsize{7pt}{1em}\bodyfont\scshape\color{graytext} #1}}
-\newcommand*{\subentrydatestyle}[1]{{\fontsize{7pt}{1em}\bodyfontlight\slshape\color{graytext} #1}}
-\newcommand*{\subentrylocationstyle}[1]{{\fontsize{7pt}{1em}\bodyfontlight\slshape\color{awesome} #1}}
-\newcommand*{\subdescriptionstyle}[1]{{\fontsize{8pt}{1em}\bodyfontlight\upshape\color{text} #1}}
+\newcommand*{\subentrytitlestyle}[1]{
+  {\fontsize{21pt}{1em}\bodyfont\mdseries\color{graytext} #1}
+}
+\newcommand*{\subentrypositionstyle}[1]{{\fontsize{19pt}{1em}\bodyfont\scshape\color{graytext} #1}}
+\newcommand*{\subentrydatestyle}[1]{{\fontsize{20pt}{1em}\bodyfontlight\slshape\color{graytext} #1}}
+\newcommand*{\subentrylocationstyle}[1]{{\fontsize{10pt}{1em}\bodyfontlight\slshape\color{awesome} #1}}
+\newcommand*{\subdescriptionstyle}[1]{{\fontsize{11pt}{1em}\bodyfontlight\upshape\color{text} #1}}
 
 % For elements of honor
 \newcommand*{\honortitlestyle}[1]{{\fontsize{9pt}{1em}\bodyfont\color{graytext} #1}}
@@ -253,6 +302,21 @@
 \def\@photoshape{circle}
 \def\@photoedge{edge}
 \def\@photoalign{left}
+
+\newcommand{\photoQR}[2][circle,edge,left]{%
+  \def\@photoQR{#2}
+  \@for\tmp:=#1\do{%
+    \ifthenelse{\equal{\tmp}{circle} \or \equal{\tmp}{rectangle}}%
+      {\let\@photoshapeQR\tmp}{}%
+    \ifthenelse{\equal{\tmp}{edge} \or \equal{\tmp}{noedge}}%
+      {\let\@photoedgeQR\tmp}{}%
+    \ifthenelse{\equal{\tmp}{left} \or \equal{\tmp}{right}}%
+      {\let\@photoalignQR\tmp}{}%
+  }%
+}
+\def\@photoshapeQR{circle}
+\def\@photoedgeQR{edge}
+\def\@photoalignQR{right}
 
 % Define writer's name
 % Usage: \name{<firstname>}{<lastname>}
@@ -434,17 +498,39 @@
       \end{tikzpicture}
     }%
   }
+
+  % Draw photo (QR code)
+  \newcommand*{\drawphotoQR}{%
+    \ifthenelse{\isundefined{\@photoQR}}{}{%
+      \newlength{\photodimQR}
+      \ifthenelse{\equal{\@photoshapeQR}{circle}}%
+        {\setlength{\photodimQR}{1.3cm}}%
+        {\setlength{\photodimQR}{1.8cm}}%
+      \ifthenelse{\equal{\@photoedgeQR}{edge}}%
+        {\def\@photoborderQR{darkgray}}%
+        {\def\@photoborderQR{none}}%
+      
+      \begin{tikzpicture}%
+        \node[\@photoshapeQR, draw=\@photoborderQR, line width=0.3mm, inner sep=\photodimQR, fill overzoom image=\@photoQR] () {};
+      \end{tikzpicture}
+      
+    }%
+  }
+
   \newlength{\headertextwidth}
   \newlength{\headerphotowidth}
   \ifthenelse{\isundefined{\@photo}}{
     \setlength{\headertextwidth}{\textwidth}
     \setlength{\headerphotowidth}{0cm}
   }{%
-    \setlength{\headertextwidth}{0.76\textwidth}
+    %\setlength{\headertextwidth}{0.76\textwidth}
+    %\setlength{\headerphotowidth}{0.24\textwidth}
+    \setlength{\headertextwidth}{0.52\textwidth}
     \setlength{\headerphotowidth}{0.24\textwidth}
   }%
   \begin{minipage}[c]{\headerphotowidth}%
     \ifthenelse{\equal{\@photoalign}{left}}{\raggedright\drawphoto}{}
+    %\ifthenelse{\equal{\@photoalign}{left}}{\raggedright\drawphotoQR}{}
   \end{minipage}
   \begin{minipage}[c]{\headertextwidth}
     \ifthenelse{\equal{#1}{L}}{\raggedright}{\ifthenelse{\equal{#1}{R}}{\raggedleft}{\centering}}
@@ -494,6 +580,8 @@
       \ifthenelse{\isundefined{\@linkedin}}%
         {}%
         {%
+          \\
+          \hspace{-1.3em}
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
           \href{https://www.linkedin.com/in/\@linkedin}{\faLinkedinSquare\acvHeaderIconSep\@linkedin}%
         }%
@@ -530,6 +618,7 @@
       \ifthenelse{\isundefined{\@googlescholarid}}%
         {}%
         {%
+          \hspace{1.1em}
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
           \href{https://scholar.google.com/citations?user=\@googlescholarid}{\faGraduationCap\acvHeaderIconSep\@googlescholarname}%
         }%
@@ -546,6 +635,7 @@
   \end{minipage}%
   \begin{minipage}[c]{\headerphotowidth}%
     \ifthenelse{\equal{\@photoalign}{right}}{\raggedleft\drawphoto}{}
+    \ifthenelse{\equal{\@photoalign}{left}}{\raggedleft\drawphotoQR}{}
   \end{minipage}
 }
 
@@ -574,6 +664,7 @@
   \vspace{-3mm}
   \subsectionstyle{#1}
   \phantomsection
+  \hspace{-5.3em}
 }
 
 % Define a paragraph for CV
@@ -581,9 +672,10 @@
   \vspace{\acvSectionContentTopSkip}
   \vspace{-3mm}
   \paragraphstyle
+  %\onehalfspacing
 }{%
   \par
-  \vspace{2mm}
+  \vspace{3mm}
 }
 
 % Define an environment for cventry
@@ -596,26 +688,11 @@
 
 % Define an entry of cv information
 % Usage: \cventry{<position>}{<title>}{<location>}{<date>}{<description>}
-\newcommand*{\cventryz}[4]{%
-  \vspace{-2.0mm}
-  \setlength\tabcolsep{0pt}
-  \setlength{\extrarowheight}{0pt}
-  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
-    \ifempty{#2#3}
-      {\entrypositionstyle{#1} & \entrydatestyle{#4} \\}
-      {\entrytitlestyle{#2} & \entrylocationstyle{#3} \\
-      \entrypositionstyle{#1} & \entrydatestyle{#4} \\}
-    \multicolumn{2}{L{\textwidth}}
-  \end{tabular*}%
-}
-
-% Define an entry of cv information
-% Usage: \cventry{<position>}{<title>}{<location>}{<date>}{<description>}
 \newcommand*{\cventry}[5]{%
-  \vspace{-2.0mm}
-  \setlength\tabcolsep{0pt}
+  \vspace{2.0mm}
+  \setlength\tabcolsep{-0pt}
   \setlength{\extrarowheight}{0pt}
-  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{3.5cm}}
     \ifempty{#2#3}
       {\entrypositionstyle{#1} & \entrydatestyle{#4} \\}
       {\entrytitlestyle{#2} & \entrylocationstyle{#3} \\
@@ -686,7 +763,7 @@
 
 % Define an environment for cvitems(for cventry)
 \newenvironment{cvitems}{%
-  \vspace{-4.0mm}
+  \vspace{-2.0mm}
   \begin{justify}
   \begin{itemize}[leftmargin=2ex, nosep, noitemsep]
     \setlength{\parskip}{0pt}
